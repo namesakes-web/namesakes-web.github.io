@@ -25,10 +25,10 @@
 <div class="row mb-2">
   <div class="col text-center h6 font-weight-bold">
     <span class="mx-2"><a href="https://morrisalp.github.io/">Morris Alper</a><sup>1</sup></span>
-    <span class="mx-2">Vasudha Varadarajan<sup>1</sup></span>
-    <span class="mx-2">Moran Yanuka<sup>2</sup></span>
-    <span class="mx-2">Angelina Wang<sup>3</sup></span>
-    <span class="mx-2">Hadar Averbuch-Elor<sup>3</sup></span>
+    <span class="mx-2"><a href="https://vasevarad.github.io">Vasudha Varadarajan</a><sup>1</sup></span>
+    <span class="mx-2"><a href="https://www.linkedin.com/in/moran-yanuka-a5452a1b7/">Moran Yanuka</a><sup>2</sup></span>
+    <span class="mx-2"><a href="https://angelina-wang.github.io">Angelina Wang</a><sup>3</sup></span>
+    <span class="mx-2"><a href="https://www.hadarelor.com/">Hadar Averbuch-Elor</a><sup>3</sup></span>
   </div>
 </div>
 
@@ -210,19 +210,6 @@
         resemble it.
       </figcaption>
     </figure>
-    <p class="text-break mt-3">
-      We validate that fame is a meaningful proxy for memorization likelihood: log-pageviews correlate with
-      reference similarity across all evaluated models (Pearson <em>r</em> = 0.36&ndash;0.53, all
-      <em>p</em>&nbsp;&#8810;&nbsp;0.001).
-    </p>
-    <figure class="results-figure mt-3">
-      <img src="assets/fame_scatter.png" class="img-fluid rounded" alt="Scatter plots of fame versus reference similarity across models" />
-      <figcaption class="text-muted small mt-1">
-        Fame (log-pageviews) vs. reference similarity across T2I models, with Pearson correlation values and
-        best-fit lines. More famous individuals are more likely to have their identities memorized, justifying
-        the stratified sampling used to construct NAMESAKES.
-      </figcaption>
-    </figure>
   </div>
 </div>
 
@@ -336,28 +323,6 @@
         high-fame names (log-pageviews above median).
       </p>
     </div>
-  </div>
-</div>
-
-<hr>
-
-<!-- ============================================================
-     ETHICS
-     ============================================================ -->
-<div class="row mt-4 mb-2">
-  <div class="col">
-    <p class="h4 font-weight-bold title">Ethical Considerations</p>
-    <p class="text-break">
-      NAMESAKES uses only openly-licensed Wikipedia images, adhering to their respective licensing and
-      attribution terms; all subjects are public figures per Wikipedia's notability criteria. The dataset has
-      protective intent&mdash;e.g., flagging memorized identities in T2I models to inform unlearning or
-      regulatory compliance&mdash;and we will honor opt-out requests for removal. We report NAMESAKES's
-      demographic skew (majority White/male, inherited from English Wikipedia) for full transparency, and find
-      that our probe is less effective on faces identified as Black or female, consistent with known
-      disparities in the underlying face-recognition and T2I models it builds upon. We recommend using this
-      probe for privacy auditing purposes only, not as a conclusive standalone determination of memorization
-      for any single name.
-    </p>
   </div>
 </div>
 
