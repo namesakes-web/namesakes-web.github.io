@@ -59,10 +59,6 @@
 
     display.appendChild(buildImageRow(ex.real_images, `"${ex.real_name}"`, "gallery-img-real"));
     display.appendChild(buildImageRow(ex.perturbed_images, `"${ex.perturbed_name}"`, "gallery-img-perturbed"));
-
-    if (ex.note) {
-      display.appendChild(el("p", "gallery-note", ex.note));
-    }
   }
 
   async function init() {

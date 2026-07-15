@@ -73,53 +73,35 @@
      ============================================================ -->
 <div class="row mt-2 mb-2">
   <div class="col">
-    <figure class="mb-3 text-center">
-      <div class="teaser-grid">
-        <div class="teaser-col teaser-label">
-          <div class="teaser-spacer"></div>
-          <div class="teaser-caption">Real Face</div>
-        </div>
-        <div class="teaser-col">
-          <div class="teaser-spacer teaser-header">Text-to-Image Generations</div>
-        </div>
-        <div class="teaser-col"></div>
-      </div>
-      <div class="teaser-grid teaser-divider">
-        <div class="teaser-col">
-          <img src="assets/gt_jodie_foster.png" class="img-fluid rounded teaser-img" alt="Ground-truth photo of Jodie Foster" />
+    <div class="d-flex align-items-center teaser-flex">
+      <figure class="mb-0 mr-4 flex-shrink-0 text-center">
+        <div class="teaser-table">
+          <div class="teaser-hdr teaser-hdr-real">Real Face</div>
+          <div class="teaser-hdr teaser-hdr-gen" style="grid-column: 2 / span 2;">Text-to-Image Generations</div>
+
+          <img src="assets/gt_jodie_foster.png" class="teaser-img" alt="Ground-truth photo of Jodie Foster" />
+          <img src="assets/sdxl_jodie_foster.png" class="teaser-img" alt="SDXL generation for Jodie Foster" />
+          <img src="assets/sdxl_jolie_fuster.png" class="teaser-img" alt="SDXL generation for perturbed name Jolie Fuster" />
           <div class="teaser-caption">&ldquo;Jodie Foster&rdquo;</div>
-        </div>
-        <div class="teaser-col">
-          <img src="assets/sdxl_jodie_foster.png" class="img-fluid rounded teaser-img" alt="SDXL generation for Jodie Foster" />
           <div class="teaser-caption">&ldquo;Jodie Foster&rdquo;</div>
-        </div>
-        <div class="teaser-col">
-          <img src="assets/sdxl_jolie_fuster.png" class="img-fluid rounded teaser-img" alt="SDXL generation for perturbed name Jolie Fuster" />
           <div class="teaser-caption teaser-perturbed">&ldquo;Jolie Fuster&rdquo;</div>
-        </div>
-      </div>
-      <div class="teaser-grid">
-        <div class="teaser-col">
-          <img src="assets/gt_idris_elba.png" class="img-fluid rounded teaser-img" alt="Ground-truth photo of Idris Elba" />
+
+          <img src="assets/gt_idris_elba.png" class="teaser-img" alt="Ground-truth photo of Idris Elba" />
+          <img src="assets/sdxl_idris_elba.png" class="teaser-img" alt="SDXL generation for Idris Elba" />
+          <img src="assets/sdxl_idrus_elga.png" class="teaser-img" alt="SDXL generation for perturbed name Idrus Elga" />
           <div class="teaser-caption">&ldquo;Idris Elba&rdquo;</div>
-        </div>
-        <div class="teaser-col">
-          <img src="assets/sdxl_idris_elba.png" class="img-fluid rounded teaser-img" alt="SDXL generation for Idris Elba" />
           <div class="teaser-caption">&ldquo;Idris Elba&rdquo;</div>
-        </div>
-        <div class="teaser-col">
-          <img src="assets/sdxl_idrus_elga.png" class="img-fluid rounded teaser-img" alt="SDXL generation for perturbed name Idrus Elga" />
           <div class="teaser-caption teaser-perturbed">&ldquo;Idrus Elga&rdquo;</div>
         </div>
-      </div>
-      <figcaption class="text-muted small mt-2 text-left teaser-figcaption">
-        T2I models memorize the faces of some individuals (left) and synthesize their likenesses when prompted
-        with their names (middle). However, when prompted with unfamiliar, orthographically similar
-        <span class="teaser-perturbed">perturbed names</span> (right), these models fabricate plausible but
-        unrelated faces. Our probing method distinguishes between these cases without access to training data
-        or ground-truth photos.
-      </figcaption>
-    </figure>
+      </figure>
+      <p class="mb-0" style="font-size:1.05rem;">
+        <strong>TL;DR:</strong> T2I models memorize the faces of some individuals and reproduce their likeness
+        when prompted with their name, but fabricate a plausible, unrelated face for an unfamiliar or
+        orthographically similar perturbed name (shown in red). We introduce a fully black-box probe that
+        tells these cases apart without ever needing a reference photo, along with <strong>NAMESAKES</strong>,
+        a benchmark of 1,269 public figures spanning the full spectrum of fame for evaluating it.
+      </p>
+    </div>
   </div>
 </div>
 
@@ -131,18 +113,32 @@
 <div class="row mb-4">
   <div class="col">
     <p class="h4 font-weight-bold title">Abstract</p>
-    <p class="abstract">
-      Text-to-image (T2I) models generate realistic likenesses of some individuals when prompted with their
-      names, raising privacy concerns. However, distinguishing whether a generated face is memorized or
-      fabricated currently requires ground-truth photos, access to training data, or white-box access to
-      model internals, limiting applicability. We introduce a fully black-box behavioral probe that
-      distinguishes between a memorized name versus an unrecognized one, while requiring no reference photos
-      or prior knowledge of training data. To perform this task, we present the <strong>NAMESAKES</strong>
-      dataset of over one thousand names and faces of public figures spanning a wide range of fame levels,
-      along with perturbed, less famous names. Experiments on state-of-the-art T2I models show that our probe
-      substantially predicts identity memorization and separates memorized from unrecognized names, with
-      further insights into differences across model families.
-    </p>
+    <div id="abstract-collapsed">
+      <p class="abstract" id="abstract-short">
+        Text-to-image (T2I) models generate realistic likenesses of some individuals when prompted with their
+        names, raising privacy concerns. However, distinguishing whether a generated face is memorized or
+        fabricated currently requires ground-truth photos, access to training data, or white-box access to
+        model internals, limiting applicability&hellip;
+        <button class="btn btn-link btn-sm p-0 align-baseline" id="abstract-expand-btn">Read more</button>
+      </p>
+    </div>
+    <div id="abstract-full" style="display:none">
+      <p class="abstract">
+        Text-to-image (T2I) models generate realistic likenesses of some individuals when prompted with their
+        names, raising privacy concerns. However, distinguishing whether a generated face is memorized or
+        fabricated currently requires ground-truth photos, access to training data, or white-box access to
+        model internals, limiting applicability. We introduce a fully black-box behavioral probe that
+        distinguishes between a memorized name versus an unrecognized one, while requiring no reference photos
+        or prior knowledge of training data. To perform this task, we present the <strong>NAMESAKES</strong>
+        dataset of over one thousand names and faces of public figures spanning a wide range of fame levels,
+        along with perturbed, less famous names. Experiments on state-of-the-art T2I models show that our probe
+        substantially predicts identity memorization and separates memorized from unrecognized names, with
+        further insights into differences across model families.
+      </p>
+      <p class="text-center">
+        <button class="btn btn-link btn-sm p-0" id="abstract-collapse-btn">Show less</button>
+      </p>
+    </div>
   </div>
 </div>
 
@@ -155,21 +151,13 @@
   <div class="col">
     <p class="h4 font-weight-bold title">Method Overview</p>
     <p class="text-break">
-      Given a T2I model and a name, our goal is to predict whether the model has <strong>memorized</strong>
-      the associated identity&mdash;i.e., whether generations resemble the individual's real likeness&mdash;or
-      whether it <strong>fabricates</strong> a plausible but ungrounded face. We define a ground-truth measure,
-      <em>reference similarity</em>, as the mean facial-embedding similarity between generated images and a
-      ground-truth photo. Our probe aims to predict this quantity <strong>without ever seeing the ground-truth
-      photo</strong>, using only the model's own generations.
-    </p>
-    <p class="text-break">
-      We propose two complementary, entirely black-box scores. <strong>Dispersion (&delta;)</strong> measures
-      how consistent multiple generations of the same name are with each other: memorized identities produce
-      tightly clustered faces, while fabricated ones vary more. <strong>Centroid similarity (s<sub>cen</sub>)</strong>
-      compares a name's average generation embedding to those of other names: unfamiliar names with similar
-      demographic associations tend to converge to similar, generic-looking outputs, while memorized identities
-      remain distinctive. Combining both probes via a simple linear model substantially predicts identity
-      memorization across model families.
+      Given a T2I model and a name, we predict whether the model has memorized the associated identity or
+      fabricates a plausible but ungrounded face, without ever accessing a ground-truth photo&mdash;using only
+      the model's own generations. We propose two complementary black-box scores: dispersion (&delta;), how
+      consistent multiple generations of the same name are with each other, and centroid similarity
+      (s<sub>cen</sub>), how similar a name's average generation is to those of other names. Memorized
+      identities tend to produce tightly clustered, distinctive faces (low &delta;, low s<sub>cen</sub>), while
+      fabricated ones are more varied yet converge toward generic, demographically-driven defaults.
     </p>
     <figure class="method-figure mt-3">
       <img src="assets/qual_gallery.png" class="img-fluid rounded" alt="Qualitative gallery spanning the memorization spectrum" />
@@ -193,14 +181,11 @@
   <div class="col">
     <p class="h4 font-weight-bold title">The NAMESAKES Dataset</p>
     <p class="text-break">
-      To evaluate our probe, we introduce <strong>NAMESAKES</strong>, a dataset of 1,269 names and paired
-      multimodal data extracted from English Wikipedia. Each entry consists of (1) a public figure's name,
-      (2) a ground-truth photo of their face, (3) an estimate of their fame based on pageview counts, and (4) a
-      <em>perturbed name</em>&mdash;a plausible but fictitious name that orthographically resembles the
-      original (e.g., <em>Jodie Foster</em> &rarr; <em>Jolie Fuster</em>), constructed to minimize edit
-      distance while avoiding collision with real celebrity names. Names are sampled via stratified sampling
-      over log-pageviews, spanning a full spectrum of fame&mdash;from extremely famous individuals likely to
-      be memorized by T2I models to relatively obscure public figures likely to produce fabricated faces.
+      NAMESAKES pairs 1,269 public figures (names, ground-truth photos, and fame estimates from Wikipedia
+      pageviews) with perturbed names&mdash;plausible but fictitious names that orthographically resemble the
+      original (e.g., <em>Jodie Foster</em> &rarr; <em>Jolie Fuster</em>). Names are sampled to span a full
+      spectrum of fame, from figures likely to be memorized by T2I models to obscure ones likely to be
+      fabricated.
     </p>
     <figure class="results-figure mt-3">
       <img src="assets/fame_examples.png" class="img-fluid rounded" alt="Sample entries from the NAMESAKES dataset spanning the fame spectrum" />
@@ -222,9 +207,7 @@
   <div class="col">
     <p class="h4 font-weight-bold title">Explore Examples</p>
     <p class="text-break">
-      Browse pairs of real and perturbed names, and see how each of the four T2I models we evaluate responds.
-      Real names often reproduce a consistent, recognizable likeness; perturbed names typically produce more
-      varied, generic faces.
+      Browse pairs of real and perturbed names generated by SDXL-Base.
     </p>
 
     <div class="demo-card">
@@ -236,92 +219,6 @@
       <div id="example-display" class="sentence-display">
         Loading examples&hellip;
       </div>
-    </div>
-  </div>
-</div>
-
-<hr>
-
-<!-- ============================================================
-     RESULTS
-     ============================================================ -->
-<div class="row mt-4 mb-2">
-  <div class="col">
-    <p class="h4 font-weight-bold title">Results</p>
-    <p class="text-break">
-      We evaluate on four T2I models spanning base and distilled diffusion variants: SDXL-Base, SDXL-Turbo,
-      Flux1-Dev, and Flux1-Schnell. Our combined probe achieves R&sup2; of 0.58 for SDXL-Base and
-      0.33&ndash;0.44 for the remaining models when predicting reference similarity&mdash;well above
-      Cohen's large-effect benchmark&mdash;without ever accessing ground-truth photos. For the more practical
-      task of separating memorized from unrecognized names, our probe achieves AUC of 0.86 (SDXL-Base) and
-      &gt;0.77 for all other models; restricting to high-fame names (where memorization is plausible) improves
-      this further, to AUC 0.95 for SDXL-Base.
-    </p>
-    <div class="table-responsive mt-3">
-      <table class="table table-sm results-table">
-        <thead>
-          <tr>
-            <th rowspan="2" class="align-middle">Model</th>
-            <th colspan="3" class="text-center">Predicting Reference Similarity (R&sup2;)</th>
-            <th colspan="4" class="text-center">Real vs. Perturbed Separability</th>
-          </tr>
-          <tr>
-            <th class="text-center">&delta; only</th>
-            <th class="text-center">s<sub>cen</sub> only</th>
-            <th class="text-center">Both</th>
-            <th class="text-center">AUC<sub>all</sub></th>
-            <th class="text-center">Acc<sub>all</sub></th>
-            <th class="text-center">AUC<sub>high</sub></th>
-            <th class="text-center">Acc<sub>high</sub></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>SDXL-Base</td>
-            <td class="text-center">0.547</td>
-            <td class="text-center">0.128</td>
-            <td class="text-center"><strong>0.581</strong></td>
-            <td class="text-center">0.859</td>
-            <td class="text-center">0.791</td>
-            <td class="text-center"><strong>0.947</strong></td>
-            <td class="text-center">0.902</td>
-          </tr>
-          <tr>
-            <td>SDXL-Turbo</td>
-            <td class="text-center">0.288</td>
-            <td class="text-center">0.171</td>
-            <td class="text-center">0.438</td>
-            <td class="text-center">0.772</td>
-            <td class="text-center">0.723</td>
-            <td class="text-center">0.835</td>
-            <td class="text-center">0.777</td>
-          </tr>
-          <tr>
-            <td>Flux1-Dev</td>
-            <td class="text-center">0.218</td>
-            <td class="text-center">0.150</td>
-            <td class="text-center">0.349</td>
-            <td class="text-center">0.781</td>
-            <td class="text-center">0.750</td>
-            <td class="text-center">0.888</td>
-            <td class="text-center">0.832</td>
-          </tr>
-          <tr>
-            <td>Flux1-Schnell</td>
-            <td class="text-center">0.137</td>
-            <td class="text-center">0.187</td>
-            <td class="text-center">0.325</td>
-            <td class="text-center">0.785</td>
-            <td class="text-center">0.748</td>
-            <td class="text-center">0.844</td>
-            <td class="text-center">0.792</td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="lex-note">
-        Cross-validated results on <em>n</em> = 1,269 items. <em>all</em>: full dataset; <em>high</em>:
-        high-fame names (log-pageviews above median).
-      </p>
     </div>
   </div>
 </div>
@@ -363,6 +260,14 @@
         btn.classList.remove('copied');
       }, 2000);
     });
+  });
+  document.getElementById('abstract-expand-btn').addEventListener('click', function() {
+    document.getElementById('abstract-collapsed').style.display = 'none';
+    document.getElementById('abstract-full').style.display = 'block';
+  });
+  document.getElementById('abstract-collapse-btn').addEventListener('click', function() {
+    document.getElementById('abstract-full').style.display = 'none';
+    document.getElementById('abstract-collapsed').style.display = 'block';
   });
 </script>
 </body>

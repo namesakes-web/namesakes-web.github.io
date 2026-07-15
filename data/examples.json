@@ -14,8 +14,7 @@
       "assets/gallery/sdxl_krim_jenney_1.png",
       "assets/gallery/sdxl_krim_jenney_2.png",
       "assets/gallery/sdxl_krim_jenney_3.png"
-    ],
-    "note": "Generations for the real name form a fairly consistent likeness, while the perturbed name's generations vary more in appearance."
+    ]
   },
   {
     "real_name": "Robert De Niro",
@@ -32,7 +31,6 @@
       "assets/gallery/sdxl_robert_dee_noro_1.png",
       "assets/gallery/sdxl_robert_dee_noro_2.png",
       "assets/gallery/sdxl_robert_dee_noro_3.png"
-    ],
-    "note": "The real name reliably reproduces a recognizable likeness across generations; the orthographically similar perturbed name does not."
+    ]
   }
 ]
