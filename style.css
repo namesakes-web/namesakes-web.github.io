@@ -1,0 +1,259 @@
+/* ============================================================
+   NAMESAKES Project Page – Custom overrides on top of Bootstrap 4
+   Styled after WAFFLE (tau-vailab.github.io/WAFFLE)
+   ============================================================ */
+
+/* Section titles */
+.title {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 14px;
+}
+
+/* Abstract */
+.abstract {
+  text-align: justify;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Body text blocks */
+.text-break {
+  text-align: justify;
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+/* ---------- Method / results figures ---------- */
+.method-figure,
+.results-figure {
+  margin: 12px 0;
+  text-align: center;
+}
+
+/* ---------- Teaser ---------- */
+.teaser-grid {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+.teaser-divider {
+  border-left: 1px solid #dee2e6;
+  padding-left: 0;
+  position: relative;
+}
+
+.teaser-col {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.teaser-img {
+  max-width: 100%;
+  width: 160px;
+}
+
+.teaser-spacer {
+  height: 1.4rem;
+}
+
+.teaser-header {
+  font-weight: 700;
+  font-size: 0.85rem;
+  grid-column: span 2;
+}
+
+.teaser-label .teaser-caption {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.teaser-caption {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 0.78rem;
+  color: #212529;
+  margin-top: 4px;
+}
+
+.teaser-perturbed {
+  color: #c0392b;
+}
+
+.teaser-figcaption {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Gallery / example browser ---------- */
+.demo-card {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 12px;
+}
+
+.sentence-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  background: #fff;
+  color: #007bff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.nav-btn:hover { background: #007bff; color: #fff; }
+.nav-btn:disabled { opacity: 0.35; cursor: default; }
+.nav-btn:disabled:hover { background: #fff; color: #007bff; }
+
+.sentence-index {
+  font-size: 0.82rem;
+  color: #6c757d;
+}
+
+.sentence-display {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.gallery-header {
+  margin-bottom: 14px;
+  font-size: 1rem;
+}
+
+.gallery-name {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-weight: 700;
+}
+
+.gallery-name-real { color: #212529; }
+.gallery-name-perturbed { color: #c0392b; }
+.gallery-vs { color: #adb5bd; font-size: 0.85rem; }
+
+.gallery-model-tag {
+  float: right;
+  background: #e9ecef;
+  color: #495057;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.gallery-row {
+  margin-bottom: 14px;
+}
+
+.gallery-row-label {
+  font-size: 0.78rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  color: #495057;
+  margin-bottom: 6px;
+}
+
+.gallery-row-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gallery-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid #dee2e6;
+}
+
+.gallery-img-real { border-color: #28a745; }
+.gallery-img-perturbed { border-color: #c0392b; }
+
+.gallery-note {
+  font-size: 0.82rem;
+  color: #6c757d;
+  font-style: italic;
+  margin: 10px 0 0;
+}
+
+/* ---------- Results table ---------- */
+.results-table {
+  font-size: 0.85rem;
+}
+
+.results-table th,
+.results-table td {
+  vertical-align: middle;
+}
+
+.lex-note {
+  font-size: 0.72rem;
+  color: #adb5bd;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* ---------- BibTeX ---------- */
+.bibtex-wrap {
+  position: relative;
+}
+
+.bibtex-block {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #212529;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 10px;
+  background: #fff;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.copy-btn:hover { background: #007bff; color: #fff; }
+.copy-btn.copied { background: #28a745; border-color: #28a745; color: #fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 576px) {
+  .abstract { padding-left: 0; padding-right: 0; }
+  .demo-card { padding: 14px; }
+  .teaser-img { width: 90px; }
+  .gallery-img { width: 64px; height: 64px; }
+}
